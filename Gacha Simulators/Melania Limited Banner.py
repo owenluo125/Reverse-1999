@@ -1,9 +1,8 @@
 import random
-from re import X
 
-sixStarRate = [62500000] # 12
+sixStarRate = [68181818] # 12 (missing 2)
 boostedSixStarRate = [750000000]
-fiveStarRate = [386363636] # 11
+fiveStarRate = [472222222] # 11 (missing 2)
 boostedFiveStarRate = [2125000000]
 fourStarRate = [2666666670] # 15
 threeStarRate = [4500000000] # 10
@@ -89,10 +88,10 @@ def pitySystem():
   global twoPulled
 
   pityRate = pity - 60
-  sixStarRate = [62500000 + 104166666*pityRate]
+  sixStarRate = [68181818 + 113636364*pityRate]
   boostedSixStarRate = [750000000 + 1250000000*pityRate]
-  fiveStarRate = [772727274 - 9806185*pityRate]
-  boostedFiveStarRate = [4250000000 - 4903093*pityRate]
+  fiveStarRate = [472222222 - 11985336*pityRate]
+  boostedFiveStarRate = [4250000000 - 53934010*pityRate]
   fourStarRate = [2666666670 - 67681900*pityRate]
   threeStarRate = [4500000000 - 114213200*pityRate]
   twoStarRate = [2500000000 - 63451780*pityRate]
@@ -150,21 +149,23 @@ def pitySystem():
     "★★ Door" : twoStarRate[0]
   }
 
+  pity += 1
+  
   if pity < 70:
-    unit = random.randint(1, 100000000064)
+    
+    unit = random.randint(1, 99999999996 + pityRate*10)
     originalUnit = unit
 
-    if unit <= 1500000000 + 2500000000*pityRate:
+    if unit <= (1499999998 + 2500000000*pityRate):
       sixPulled += 1
-    elif unit <= (772727274 - 19612370*pityRate)*11:
+    elif unit <= (1499999998 + 2500000000*pityRate) + (8499999998 - 215736040*pityRate):
       fivePulled += 1
-    elif unit <= (2666666670 - 67681900*pityRate)*15:
+    elif unit <= (1499999998 + 2500000000*pityRate) + (8499999998 - 215736040*pityRate) + (40000000000 - 1015228400*pityRate):
       fourPulled += 1
-    elif unit <= (4500000000 - 114213200*pityRate)*10:
+    elif unit <= (1499999998 + 2500000000*pityRate) + (8499999998 - 215736040*pityRate) + (40000000000 - 1015228400*pityRate) + (45000000000 - 1142132000*pityRate):
       threePulled += 1
-    elif unit <= (2500000000 - 63451780*pityRate)*2:
+    elif unit <= (1499999998 + 2500000000*pityRate) + (8499999998 - 215736040*pityRate) + (40000000000 - 1015228400*pityRate) + (45000000000 - 1142132000*pityRate) + (5000000000 - 126903550*pityRate):
       twoPulled += 1
-
     for x, y in unitPool.items():
       unit -= y
       if unit <= 0:
@@ -172,16 +173,14 @@ def pitySystem():
           sweetheart += 1
         elif x == "★★★★★ Balloon Party":
           balloonParty += 1
-        if originalUnit <= 1500000000 + 2500000000*pityRate and lostPity > 0:
+        if originalUnit <= 1499999998 + 2500000000*pityRate and lostPity > 0:
           print("★★★★★★ Melania ★★★★★★")
           lostPity = 0
           melania += 1
-          x = "★★★★★★ Melania ★★★★★★"
-            
+          x = "★★★★★★ Melania ★★★★★★"   
         else:
           print(x)
-        pity += 1
-        if originalUnit <= 1500000000 + 2500000000*pityRate:
+        if originalUnit <= 1499999998 + 2500000000*pityRate:
           pity = 0
           if x != "★★★★★★ Melania ★★★★★★":
             lostPity += 1
@@ -192,12 +191,10 @@ def pitySystem():
     pityUnit = random.randint(1,22)
     if pityUnit > 11: # melania
       lostPity = 0
-      sixPulled -= 1
       melania += 1
       print("★★★★★★ Melania ★★★★★★")
     elif lostPity > 0:
       lostPity = 0
-      sixPulled -= 1
       melania += 1
       print("★★★★★★ Melania ★★★★★★")
     else:
@@ -222,22 +219,22 @@ def pull():
   global twoPulled
 
   for x in range(pulls):
-    unit = random.randint(1, 100000000064)
+    unit = random.randint(1, 99999999996)
     originalUnit = unit
     totalPulls += 1
     if pity >= 60:
       pitySystem()
       continue
-    elif unit <= 1500000000:
+    elif unit <= 1499999998:
       sixPulled += 1
       pity = 0
-    elif unit <= 10000000014:
+    elif unit <= 9999999996:
       fivePulled += 1
       pity += 1
-    elif unit <= 50000000064:
+    elif unit <= 49999999996:
       fourPulled += 1
       pity += 1
-    elif unit <= 95000000064:
+    elif unit <= 94999999996:
       threePulled += 1
       pity += 1
     else:
@@ -246,11 +243,11 @@ def pull():
     for x, y in unitPool.items():
       unit -= y
       if unit <= 0:
-        if lostPity > 0 and originalUnit <= 1500000000:
+        if lostPity > 0 and originalUnit <= 1499999998:
           print("★★★★★★ Melania ★★★★★★")
           x = "★★★★★★ Melania ★★★★★★"
           lostPity = 0
-        elif lostPity == 0 and originalUnit <= 1500000000:
+        elif lostPity == 0 and originalUnit <= 1499999998:
           lostPity += 1
           print(x)
         else:
