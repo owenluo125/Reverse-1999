@@ -54,13 +54,13 @@ while True:
       "★★★★★★ Ms. NewBabel ★★★★★★" : sixStarRate[0],
       "★★★★★★ Voyager ★★★★★★" : sixStarRate[0],
       "★★★★★ " + newFiveStar : boostedFiveStarRate[0],
-      "★★★★★ X" : boostedFiveStarRate[0],
+      "★★★★★ Balloon Party" : boostedFiveStarRate[0],
       "★★★★★ Sweetheart" : fiveStarRate[0],
       "★★★★★ Baby Blue" : fiveStarRate[0],
       "★★★★★ Charlie" : fiveStarRate[0],
       "★★★★★ Bkornblume" : fiveStarRate[0],
       "★★★★★ Dikke" : fiveStarRate[0],
-      "★★★★★ Balloon Party" : fiveStarRate[0],
+      "★★★★★ X" : fiveStarRate[0],
       "★★★★★ Necrologist" : fiveStarRate[0],
       "★★★★★ Satsuki" : fiveStarRate[0],
       "★★★★★ Tennant" : fiveStarRate[0],
@@ -116,6 +116,7 @@ while True:
         if unit <= boostedSixStarRate[0] or hardPity > 0: # counter for rate up unit
           rateUpSix += 1 # increase count of rate up six stars
           hardPity = 0 # reset the 50/50
+          unit = 0
         else: # if the unit is not the rate up unit
           hardPity += 1 # next unit is a guaranteed rate up
     
